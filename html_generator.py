@@ -87,6 +87,10 @@ def generate_html(categories):
 
             </div>
             """
+    output_path = os.path.abspath("docs/index.html")
+
+    print("저장 위치:", output_path)
+
 
     with open(
             "docs/index.html",
