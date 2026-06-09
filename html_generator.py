@@ -3,7 +3,7 @@ import os
 
 def generate_html(categories):
 
-    os.makedirs("output", exist_ok=True)
+    os.makedirs("docs", exist_ok=True)
 
     total_count = sum(
         len(items)
@@ -89,7 +89,7 @@ def generate_html(categories):
             """
 
     with open(
-            "output/index.html",
+            "docs/index.html",
             "w",
             encoding="utf-8"
     ) as f:
