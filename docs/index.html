@@ -7,29 +7,80 @@
 
         <style>
             body{
-                font-family: Arial, sans-serif;
-                max-width: 1000px;
-                margin: 30px auto;
-                padding: 20px;
-            }
-
-            h1{
-                color:#2c3e50;
-            }
-
-            .news-item{
-                border-bottom:1px solid #ddd;
-                padding:15px 0;
-            }
-
-            a{
-                text-decoration:none;
-                color:#0066cc;
-            }
-
-            a:hover{
-                text-decoration:underline;
-            }
+                    font-family: "Segoe UI", sans-serif;
+                    background:#f4f6f8;
+                    margin:0;
+                    padding:30px;
+                }
+                
+                .container{
+                    max-width:1200px;
+                    margin:auto;
+                }
+                
+                h1{
+                    color:#1f2937;
+                    margin-bottom:10px;
+                }
+                
+                h2{
+                    margin-top:40px;
+                    color:#374151;
+                }
+                
+                .dashboard{
+                    display:flex;
+                    gap:15px;
+                    margin-bottom:30px;
+                    flex-wrap:wrap;
+                }
+                
+                .stat-card{
+                    background:white;
+                    padding:20px;
+                    border-radius:12px;
+                    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+                    flex:1;
+                    min-width:180px;
+                    text-align:center;
+                }
+                
+                .stat-card .number{
+                    font-size:32px;
+                    font-weight:bold;
+                    margin-top:10px;
+                }
+                
+                .news-grid{
+                    display:grid;
+                    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+                    gap:20px;
+                }
+                
+                .news-item{
+                    background:white;
+                    padding:20px;
+                    border-radius:12px;
+                    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+                    transition:0.2s;
+                }
+                
+                .news-item:hover{
+                    transform:translateY(-3px);
+                }
+                
+                .news-item h3{
+                    font-size:18px;
+                    line-height:1.4;
+                }
+                
+                .news-item a{
+                    display:inline-block;
+                    margin-top:10px;
+                    color:#2563eb;
+                    font-weight:bold;
+                    text-decoration:none;
+                }
         </style>
     </head>
     <body>
@@ -47,7 +98,7 @@
     <b>송파구 뉴스</b> : 0<br>
     <b>재건축 뉴스</b> : 1<br>
     <b>상업용 부동산</b> : 2<br>
-    <b>주택시장 뉴스</b> : 3
+    <b>주택시장 뉴스</b> : 4
 
     </div>
     
@@ -103,7 +154,21 @@
         
             <div class="news-item">
 
-                <h3>1. 수도권 주택난에 ‘단비’…검단 신도시급 1.7만가구 개발 시동</h3>
+                <h3>1. 올해에만 10% 뛴 서울아파트…중위값 상승폭 '역대 최대'</h3>
+
+                <p>
+                    Tue, 09 Jun 2026 17:49:00 +09:00
+                </p>
+
+                <a href="https://www.mk.co.kr/news/realestate/12069748" target="_blank">
+                    원문 보기
+                </a>
+
+            </div>
+            
+            <div class="news-item">
+
+                <h3>2. 수도권 주택난에 ‘단비’…검단 신도시급 1.7만가구 개발 시동</h3>
 
                 <p>
                     Tue, 09 Jun 2026 17:09:59 +09:00
@@ -117,7 +182,7 @@
             
             <div class="news-item">
 
-                <h3>2. “신축 구축 따질 때가 아니에요”…전세품귀 현상에 ‘곡소리’</h3>
+                <h3>3. “신축 구축 따질 때가 아니에요”…전세품귀 현상에 ‘곡소리’</h3>
 
                 <p>
                     Tue, 09 Jun 2026 14:55:34 +09:00
@@ -131,7 +196,7 @@
             
             <div class="news-item">
 
-                <h3>3. 서울은 없어서 못사는데…충청은 미분양 전쟁</h3>
+                <h3>4. 서울은 없어서 못사는데…충청은 미분양 전쟁</h3>
 
                 <p>
                     Tue, 09 Jun 2026 14:51:08 +09:00
@@ -182,20 +247,6 @@
                 </p>
 
                 <a href="https://www.mk.co.kr/news/realestate/12069474" target="_blank">
-                    원문 보기
-                </a>
-
-            </div>
-            
-            <div class="news-item">
-
-                <h3>4. 호반건설, 한국건설기술연구원과 스마트건설 기술 협력 강화</h3>
-
-                <p>
-                    Tue, 09 Jun 2026 14:17:33 +09:00
-                </p>
-
-                <a href="https://www.mk.co.kr/news/realestate/12069417" target="_blank">
                     원문 보기
                 </a>
 

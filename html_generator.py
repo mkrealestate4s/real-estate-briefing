@@ -19,29 +19,80 @@ def generate_html(categories):
 
         <style>
             body{
-                font-family: Arial, sans-serif;
-                max-width: 1000px;
-                margin: 30px auto;
-                padding: 20px;
-            }
-
-            h1{
-                color:#2c3e50;
-            }
-
-            .news-item{
-                border-bottom:1px solid #ddd;
-                padding:15px 0;
-            }
-
-            a{
-                text-decoration:none;
-                color:#0066cc;
-            }
-
-            a:hover{
-                text-decoration:underline;
-            }
+                    font-family: "Segoe UI", sans-serif;
+                    background:#f4f6f8;
+                    margin:0;
+                    padding:30px;
+                }
+                
+                .container{
+                    max-width:1200px;
+                    margin:auto;
+                }
+                
+                h1{
+                    color:#1f2937;
+                    margin-bottom:10px;
+                }
+                
+                h2{
+                    margin-top:40px;
+                    color:#374151;
+                }
+                
+                .dashboard{
+                    display:flex;
+                    gap:15px;
+                    margin-bottom:30px;
+                    flex-wrap:wrap;
+                }
+                
+                .stat-card{
+                    background:white;
+                    padding:20px;
+                    border-radius:12px;
+                    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+                    flex:1;
+                    min-width:180px;
+                    text-align:center;
+                }
+                
+                .stat-card .number{
+                    font-size:32px;
+                    font-weight:bold;
+                    margin-top:10px;
+                }
+                
+                .news-grid{
+                    display:grid;
+                    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+                    gap:20px;
+                }
+                
+                .news-item{
+                    background:white;
+                    padding:20px;
+                    border-radius:12px;
+                    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+                    transition:0.2s;
+                }
+                
+                .news-item:hover{
+                    transform:translateY(-3px);
+                }
+                
+                .news-item h3{
+                    font-size:18px;
+                    line-height:1.4;
+                }
+                
+                .news-item a{
+                    display:inline-block;
+                    margin-top:10px;
+                    color:#2563eb;
+                    font-weight:bold;
+                    text-decoration:none;
+                }
         </style>
     </head>
     <body>
