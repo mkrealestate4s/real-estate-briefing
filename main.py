@@ -25,6 +25,8 @@ def main():
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
+    print(f"저장 시도 경로: {output_path}")  # ← 이 줄 추가
+
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(html)
 
