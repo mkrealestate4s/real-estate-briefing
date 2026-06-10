@@ -4,10 +4,11 @@ from datetime import datetime
 # ── 카테고리별 아이콘 / 색상 설정 ──────────────────────────
 CATEGORY_CONFIG = {
     '송파구 뉴스':    {'icon': '📍', 'color': '#b45309', 'bg': '#fffbeb', 'border': '#fcd34d', 'tag_bg': '#fef3c7', 'tag_text': '#92400e'},
-    '재건축 뉴스':    {'icon': '🏗️', 'color': '#1d4ed8', 'bg': '#eff6ff', 'border': '#93c5fd', 'tag_bg': '#dbeafe', 'tag_text': '#1e40af'},
-    '상업용 부동산':  {'icon': '🏢', 'color': '#0f766e', 'bg': '#f0fdfa', 'border': '#5eead4', 'tag_bg': '#ccfbf1', 'tag_text': '#134e4a'},
-    '주택시장 뉴스':  {'icon': '🏠', 'color': '#6d28d9', 'bg': '#faf5ff', 'border': '#c4b5fd', 'tag_bg': '#ede9fe', 'tag_text': '#4c1d95'},
+    '재건축 뉴스':   {'icon': '🏗️', 'color': '#1d4ed8', 'bg': '#eff6ff', 'border': '#93c5fd', 'tag_bg': '#dbeafe', 'tag_text': '#1e40af'},
+    '상업용 부동산': {'icon': '🏢', 'color': '#0f766e', 'bg': '#f0fdfa', 'border': '#5eead4', 'tag_bg': '#ccfbf1', 'tag_text': '#134e4a'},
+    '주택시장 뉴스': {'icon': '🏠', 'color': '#6d28d9', 'bg': '#faf5ff', 'border': '#c4b5fd', 'tag_bg': '#ede9fe', 'tag_text': '#4c1d95'},
     '금융·정책 뉴스': {'icon': '📊', 'color': '#be185d', 'bg': '#fdf2f8', 'border': '#f9a8d4', 'tag_bg': '#fce7f3', 'tag_text': '#9d174d'},
+    '기타 뉴스':     {'icon': '📰', 'color': '#44403c', 'bg': '#fafaf9', 'border': '#d6d3d1', 'tag_bg': '#f5f5f4', 'tag_text': '#44403c'},
 }
 
 
@@ -85,6 +86,18 @@ def get_css() -> str:
     }
 
     /* ── 통계 카드 ── */
+    .stats-total { margin-bottom: 12px; }
+    .stats-total .stat-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-align: left;
+      padding: 18px 24px;
+    }
+    .stats-total .stat-card .stat-icon { font-size: 28px; margin-bottom: 0; }
+    .stats-total .stat-card .stat-num  { font-size: clamp(32px, 7vw, 44px); }
+    .stats-total .stat-card .stat-label { font-size: 14px; }
+
     .stats-row {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -305,17 +318,30 @@ def generate_html(
     today = generated_at or datetime.now().strftime("%Y년 %m월 %d일")
     summary_text = one_line_summary or f"총 {total_count}건의 부동산 뉴스를 수집했습니다."
 
-    # 통계 카드
+    # 전체 기사 수 카드 (가로 전체)
+    total_card_html = f"""
+  <div class="stats-total">
+    <div class="stat-card">
+      <span class="stat-icon">📰</span>
+      <div>
+        <div class="stat-num">{total_count}</div>
+        <div class="stat-label">오늘 수집된 전체 기사</div>
+      </div>
+    </div>
+  </div>"""
+
+    # 카테고리별 통계 카드 (그리드)
     stats_html = (
-        build_stat_card('📰', total_count, '전체 기사') +
-        build_stat_card('📍', len(categories.get('송파구 뉴스', [])),    '송파구') +
-        build_stat_card('🏗️', len(categories.get('재건축 뉴스', [])),   '재건축') +
-        build_stat_card('🏢', len(categories.get('상업용 부동산', [])), '상업용') +
-        build_stat_card('🏠', len(categories.get('주택시장 뉴스', [])), '주택시장')
+        build_stat_card('📍', len(categories.get('송파구 뉴스', [])),     '송파구') +
+        build_stat_card('🏗️', len(categories.get('재건축 뉴스', [])),    '재건축') +
+        build_stat_card('🏠', len(categories.get('주택시장 뉴스', [])),  '주택시장') +
+        build_stat_card('🏢', len(categories.get('상업용 부동산', [])),  '상업용') +
+        build_stat_card('📊', len(categories.get('금융·정책 뉴스', [])), '금융·정책') +
+        build_stat_card('📰', len(categories.get('기타 뉴스', [])),       '기타')
     )
 
-    # 섹션 순서: 송파 → 재건축 → 주택시장 → 상업용
-    section_order = ['송파구 뉴스', '재건축 뉴스', '주택시장 뉴스', '상업용 부동산']
+    # 섹션 순서: 송파 → 재건축 → 주택시장 → 상업용 → 금융·정책 → 기타
+    section_order = ['송파구 뉴스', '재건축 뉴스', '주택시장 뉴스', '상업용 부동산', '금융·정책 뉴스', '기타 뉴스']
     sections_html = ''
     for cat in section_order:
         articles = categories.get(cat, [])
@@ -344,6 +370,7 @@ def generate_html(
     <div class="header-summary">📌 {summary_text}</div>
   </header>
 
+  {total_card_html}
   <div class="stats-row">{stats_html}
   </div>
 
