@@ -4,9 +4,10 @@ from datetime import datetime
 # ── 카테고리별 아이콘 / 색상 설정 ──────────────────────────
 CATEGORY_CONFIG = {
     '송파구 뉴스':    {'icon': '📍', 'color': '#b45309', 'bg': '#fffbeb', 'border': '#fcd34d', 'tag_bg': '#fef3c7', 'tag_text': '#92400e'},
-    '재건축 뉴스':   {'icon': '🏗️', 'color': '#1d4ed8', 'bg': '#eff6ff', 'border': '#93c5fd', 'tag_bg': '#dbeafe', 'tag_text': '#1e40af'},
-    '상업용 부동산': {'icon': '🏢', 'color': '#0f766e', 'bg': '#f0fdfa', 'border': '#5eead4', 'tag_bg': '#ccfbf1', 'tag_text': '#134e4a'},
-    '주택시장 뉴스': {'icon': '🏠', 'color': '#6d28d9', 'bg': '#faf5ff', 'border': '#c4b5fd', 'tag_bg': '#ede9fe', 'tag_text': '#4c1d95'},
+    '재건축 뉴스':    {'icon': '🏗️', 'color': '#1d4ed8', 'bg': '#eff6ff', 'border': '#93c5fd', 'tag_bg': '#dbeafe', 'tag_text': '#1e40af'},
+    '상업용 부동산':  {'icon': '🏢', 'color': '#0f766e', 'bg': '#f0fdfa', 'border': '#5eead4', 'tag_bg': '#ccfbf1', 'tag_text': '#134e4a'},
+    '주택시장 뉴스':  {'icon': '🏠', 'color': '#6d28d9', 'bg': '#faf5ff', 'border': '#c4b5fd', 'tag_bg': '#ede9fe', 'tag_text': '#4c1d95'},
+    '금융·정책 뉴스': {'icon': '📊', 'color': '#be185d', 'bg': '#fdf2f8', 'border': '#f9a8d4', 'tag_bg': '#fce7f3', 'tag_text': '#9d174d'},
 }
 
 
